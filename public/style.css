@@ -1,11 +1,16 @@
 body{
   padding-top:80px;
   word-wrap:break-word;
-  background-image: url('img/sneaker.png')
+  background-image: url('img/ombre.png');
+  background-size: cover;
+  
   
 }
 h1{
   font-size: 40px;
+  color: yellow;
+}
+h2{
   color: yellow;
 }
 img{
