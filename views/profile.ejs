@@ -8,130 +8,43 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div>
+        <button>
+            <a href="/cart"><%= total  %></a>
+        </button>
+    </div>
 <div class="container">
 
     <div class="page-header text-center">
         <h1><span class="fa fa-shoe"></span>Shoe Options</h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
     </div>
-    <div class="sneaker-display">
-        <img class="sneaker-image" id="s1" src="">
-        <% if (user.local.email) { %>
-        <form action="/mall" method="POST">
-            <input type="text" name="name">
-            <input type="text" placeholder="message" name="msg">
-            <button type="submit">Submit</button>
-        </form>
-        <% } %>
-    </div>
-    <img class="sneaker-image" id="s2" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s3" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s4" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s5" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s6" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s7" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message"
-        name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s8" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s9" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-    <img class="sneaker-image" id="s10" src="">
-    <% if (user.local.email) { %>
-    <form action="/mall" method="POST">
-        <input type="text" name="name">
-        <input type="text" placeholder="message" name="msg">
-        <button type="submit">Submit</button>
-    </form>
-    <% } %>
-    </div>
-</div>
+  
 
 
 <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-<div class="row">
-    <div class="review-form">
-        <h3>Leave a Review</h3>
-        <form action="/review" method="POST">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="reviewer" required>
 
-            <label for="message">Review:</label>
-            <textarea id="message" name="review" required></textarea>    
-            <button type="submit">Submit Review</button>
-        </form>
-    </div>
 
     <div class="view">
-        <h3>reviews</h3>
+        <h3>Available Shoes</h3>
         <ul class="review">
-            <% for(var i=0; i<reviews.length; i++) {%>
+            <% for(var i=0; i<shoes.length; i++) {%>
             <li class="message">
-                <span><%= reviews[i].reviewer %></span>
-                <span><%= reviews[i].review %></span>
-                <span><i class="fa fa-trash" aria-hidden="true"></i></span>
-                <i class="fa fa-edit" aria-hidden="true"></i>
+            <form action="/shop" method="post"> 
+                <input name="brand" value="<%= shoes[i].brand %>"></input>
+                <input name="model" value="<%= shoes[i].model %>"></input>
+                <input name="colorway" value="<%= shoes[i].colorway %>"></input>
+                <input name="price" value="<%= shoes[i].price %>"></input>
+                <img src="<%= shoes[i].image_url %>">
+                <select name="size">
+                <% for(var s=0; s<shoes[i].sizes.length; s++) {%>
+            
+                 <option><%= shoes[i].sizes[s] %></option>
+
+                    <% } %>
+                </select>
+               <button type="submit">Add to Cart</button>
+            </form>
             </li>
             <% } %>
         </ul>

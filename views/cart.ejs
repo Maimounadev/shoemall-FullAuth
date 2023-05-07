@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+    <title>Sneaker Mall</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <button>
+            <a href="/profile">Continue Shopping</a>
+        </button>
+    </div>
+<div class="container">
+    <div class="view">
+        <h3>Your cart</h3>
+        <table class="review">
+            <tr>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>colorway</th>
+                <th>price</th>
+                <th>size</th>
+                <th>Remove</th>
+            </tr>
+            <% for(var i=0; i<cart.length; i++) {%>
+        <tr class="message">
+                <td><%= cart[i].brand %></td>
+                <td><%= cart[i].model %></td>
+                <td><%= cart[i].colorway %></td>
+                <td><%= cart[i].price %></td>
+                <td><%= cart[i].size %></td>
+                <td><button class="remove" value="<%= cart[i]._id %>">X</button></td>
+        </tr>
+            <% } %>
+        </table>
+    </div>
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>

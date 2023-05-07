@@ -18,6 +18,20 @@ img{
   display: flex;
   flex-direction: column;
 } 
+table {
+  width: 100%;
+}
+td, th {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+tr:nth-child(even) {
+background-color: #ddd;
+}
+tr:nth-child(odd) {
+  background-color: #fff;
+  }
 
 
 
