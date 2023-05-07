@@ -1,4 +1,4 @@
-body{
+ body{
   padding-top:80px;
   word-wrap:break-word;
   background-image: url('img/ombre.png');
@@ -17,5 +17,8 @@ img{
   width: 33.333%;
   display: flex;
   flex-direction: column;
-}
+} 
+
+
+
 

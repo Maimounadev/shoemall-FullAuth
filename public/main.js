@@ -1,5 +1,6 @@
 var thumbUp = document.getElementsByClassName("fa-thumbs-up");
 var trash = document.getElementsByClassName("fa-trash");
+const editButtons = document.getElementsByClassName("fa-edit");
 let sneakerOne = document.querySelector('#s1')
 let sneakerTwo = document.querySelector('#s2')
 let sneakerThree = document.querySelector('#s3')
@@ -134,22 +135,24 @@ Array.from(thumbUp).forEach(function(element) {
 
 Array.from(trash).forEach(function(element) {
       element.addEventListener('click', function(){
-        const name = this.parentNode.parentNode.childNodes[1].innerText
-        const msg = this.parentNode.parentNode.childNodes[3].innerText
-        fetch('messages', {
+        const reviewer = this.parentNode.parentNode.childNodes[1].innerText
+        const review = this.parentNode.parentNode.childNodes[3].innerText
+        fetch('reviews', {
           method: 'delete',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            'name': name,
-            'msg': msg
+            'reviewer': reviewer,
+            'review': review
           })
         }).then(function (response) {
           window.location.reload()
         })
       });
 });
+
+
 const displaySneakerDetails = (index) => {
   const sneaker = sneakers[index];
   const details = `<h2>${sneaker.brand} ${sneaker.model}<br>
@@ -164,4 +167,5 @@ imageElements.forEach((image, index) => {
   image.addEventListener('click', () => {
     displaySneakerDetails(index);
   });
+
 });
